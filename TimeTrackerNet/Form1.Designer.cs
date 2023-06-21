@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataEntry_pnl = new System.Windows.Forms.Panel();
+            this.dateSelection = new System.Windows.Forms.DateTimePicker();
             this.save_btn = new System.Windows.Forms.Button();
             this.skillSelection_dropdown = new System.Windows.Forms.ComboBox();
             this.duration_txt = new System.Windows.Forms.TextBox();
@@ -42,10 +43,15 @@
             this.progressTrackerContextBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.plot = new ScottPlot.FormsPlot();
             this.button1 = new System.Windows.Forms.Button();
-            this.dateSelection = new System.Windows.Forms.DateTimePicker();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.timerPanel = new System.Windows.Forms.Panel();
+            this.timeDisplay_txt = new System.Windows.Forms.TextBox();
+            this.stop_btn = new System.Windows.Forms.Button();
+            this.play_btn = new System.Windows.Forms.Button();
             this.dataEntry_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeTrackingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressTrackerContextBindingSource)).BeginInit();
+            this.timerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataEntry_pnl
@@ -65,6 +71,13 @@
             this.dataEntry_pnl.Name = "dataEntry_pnl";
             this.dataEntry_pnl.Size = new System.Drawing.Size(268, 178);
             this.dataEntry_pnl.TabIndex = 0;
+            // 
+            // dateSelection
+            // 
+            this.dateSelection.Location = new System.Drawing.Point(13, 102);
+            this.dateSelection.Name = "dateSelection";
+            this.dateSelection.Size = new System.Drawing.Size(240, 23);
+            this.dateSelection.TabIndex = 9;
             // 
             // save_btn
             // 
@@ -153,18 +166,57 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.UpdateGraph);
             // 
-            // dateSelection
+            // timer1
             // 
-            this.dateSelection.Location = new System.Drawing.Point(13, 102);
-            this.dateSelection.Name = "dateSelection";
-            this.dateSelection.Size = new System.Drawing.Size(240, 23);
-            this.dateSelection.TabIndex = 9;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // timerPanel
+            // 
+            this.timerPanel.Controls.Add(this.timeDisplay_txt);
+            this.timerPanel.Controls.Add(this.stop_btn);
+            this.timerPanel.Controls.Add(this.play_btn);
+            this.timerPanel.Location = new System.Drawing.Point(20, 225);
+            this.timerPanel.Name = "timerPanel";
+            this.timerPanel.Size = new System.Drawing.Size(260, 81);
+            this.timerPanel.TabIndex = 8;
+            // 
+            // timeDisplay_txt
+            // 
+            this.timeDisplay_txt.Font = new System.Drawing.Font("Sonic XBd BT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.timeDisplay_txt.Location = new System.Drawing.Point(67, 9);
+            this.timeDisplay_txt.Name = "timeDisplay_txt";
+            this.timeDisplay_txt.ReadOnly = true;
+            this.timeDisplay_txt.Size = new System.Drawing.Size(178, 34);
+            this.timeDisplay_txt.TabIndex = 2;
+            this.timeDisplay_txt.Text = "00:00:00";
+            this.timeDisplay_txt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // stop_btn
+            // 
+            this.stop_btn.Location = new System.Drawing.Point(159, 49);
+            this.stop_btn.Name = "stop_btn";
+            this.stop_btn.Size = new System.Drawing.Size(86, 23);
+            this.stop_btn.TabIndex = 1;
+            this.stop_btn.Text = "Stop";
+            this.stop_btn.UseVisualStyleBackColor = true;
+            this.stop_btn.Click += new System.EventHandler(this.stop_btn_Click);
+            // 
+            // play_btn
+            // 
+            this.play_btn.Location = new System.Drawing.Point(67, 49);
+            this.play_btn.Name = "play_btn";
+            this.play_btn.Size = new System.Drawing.Size(86, 23);
+            this.play_btn.TabIndex = 0;
+            this.play_btn.Text = "Play";
+            this.play_btn.UseVisualStyleBackColor = true;
+            this.play_btn.Click += new System.EventHandler(this.play_btn_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.timerPanel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.plot);
             this.Controls.Add(this.errorHandler_txt);
@@ -175,6 +227,8 @@
             this.dataEntry_pnl.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeTrackingBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressTrackerContextBindingSource)).EndInit();
+            this.timerPanel.ResumeLayout(false);
+            this.timerPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,5 +250,10 @@
         private ScottPlot.FormsPlot plot;
         private Button button1;
         private DateTimePicker dateSelection;
+        private System.Windows.Forms.Timer timer1;
+        private Panel timerPanel;
+        private TextBox timeDisplay_txt;
+        private Button stop_btn;
+        private Button play_btn;
     }
 }
