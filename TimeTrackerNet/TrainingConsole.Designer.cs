@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.formsPlot1 = new ScottPlot.FormsPlot();
+            this.plot = new ScottPlot.FormsPlot();
             this.distance_txt = new System.Windows.Forms.TextBox();
             this.exercise_lbl = new System.Windows.Forms.Label();
             this.duration_lbl = new System.Windows.Forms.Label();
@@ -41,27 +41,27 @@
             this.exercise_txt = new System.Windows.Forms.TextBox();
             this.avgheartrate_txt = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.weather_txt = new System.Windows.Forms.TextBox();
-            this.date_picker = new System.Windows.Forms.DateTimePicker();
-            this.comment_txt = new System.Windows.Forms.TextBox();
             this.save_btn = new System.Windows.Forms.Button();
+            this.comment_txt = new System.Windows.Forms.TextBox();
+            this.date_picker = new System.Windows.Forms.DateTimePicker();
+            this.weather_txt = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // formsPlot1
+            // plot
             // 
-            this.formsPlot1.Location = new System.Drawing.Point(574, 152);
-            this.formsPlot1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.formsPlot1.Name = "formsPlot1";
-            this.formsPlot1.Size = new System.Drawing.Size(733, 346);
-            this.formsPlot1.TabIndex = 1;
+            this.plot.Location = new System.Drawing.Point(574, 152);
+            this.plot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.plot.Name = "plot";
+            this.plot.Size = new System.Drawing.Size(733, 346);
+            this.plot.TabIndex = 1;
             // 
             // distance_txt
             // 
             this.distance_txt.Location = new System.Drawing.Point(28, 140);
             this.distance_txt.Name = "distance_txt";
             this.distance_txt.Size = new System.Drawing.Size(222, 23);
-            this.distance_txt.TabIndex = 0;
+            this.distance_txt.TabIndex = 3;
             // 
             // exercise_lbl
             // 
@@ -132,21 +132,21 @@
             this.duration_txt.Location = new System.Drawing.Point(29, 96);
             this.duration_txt.Name = "duration_txt";
             this.duration_txt.Size = new System.Drawing.Size(222, 23);
-            this.duration_txt.TabIndex = 8;
+            this.duration_txt.TabIndex = 2;
             // 
             // exercise_txt
             // 
             this.exercise_txt.Location = new System.Drawing.Point(29, 52);
             this.exercise_txt.Name = "exercise_txt";
             this.exercise_txt.Size = new System.Drawing.Size(222, 23);
-            this.exercise_txt.TabIndex = 9;
+            this.exercise_txt.TabIndex = 1;
             // 
             // avgheartrate_txt
             // 
             this.avgheartrate_txt.Location = new System.Drawing.Point(28, 184);
             this.avgheartrate_txt.Name = "avgheartrate_txt";
             this.avgheartrate_txt.Size = new System.Drawing.Size(222, 23);
-            this.avgheartrate_txt.TabIndex = 10;
+            this.avgheartrate_txt.TabIndex = 4;
             // 
             // panel1
             // 
@@ -170,19 +170,15 @@
             this.panel1.Size = new System.Drawing.Size(555, 474);
             this.panel1.TabIndex = 0;
             // 
-            // weather_txt
+            // save_btn
             // 
-            this.weather_txt.Location = new System.Drawing.Point(28, 272);
-            this.weather_txt.Name = "weather_txt";
-            this.weather_txt.Size = new System.Drawing.Size(222, 23);
-            this.weather_txt.TabIndex = 11;
-            // 
-            // date_picker
-            // 
-            this.date_picker.Location = new System.Drawing.Point(28, 228);
-            this.date_picker.Name = "date_picker";
-            this.date_picker.Size = new System.Drawing.Size(222, 23);
-            this.date_picker.TabIndex = 12;
+            this.save_btn.Location = new System.Drawing.Point(394, 423);
+            this.save_btn.Name = "save_btn";
+            this.save_btn.Size = new System.Drawing.Size(75, 23);
+            this.save_btn.TabIndex = 8;
+            this.save_btn.Text = "Save";
+            this.save_btn.UseVisualStyleBackColor = true;
+            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
             // comment_txt
             // 
@@ -190,23 +186,28 @@
             this.comment_txt.Multiline = true;
             this.comment_txt.Name = "comment_txt";
             this.comment_txt.Size = new System.Drawing.Size(222, 74);
-            this.comment_txt.TabIndex = 13;
+            this.comment_txt.TabIndex = 7;
             // 
-            // save_btn
+            // date_picker
             // 
-            this.save_btn.Location = new System.Drawing.Point(394, 423);
-            this.save_btn.Name = "save_btn";
-            this.save_btn.Size = new System.Drawing.Size(75, 23);
-            this.save_btn.TabIndex = 14;
-            this.save_btn.Text = "Save";
-            this.save_btn.UseVisualStyleBackColor = true;
+            this.date_picker.Location = new System.Drawing.Point(28, 228);
+            this.date_picker.Name = "date_picker";
+            this.date_picker.Size = new System.Drawing.Size(222, 23);
+            this.date_picker.TabIndex = 5;
+            // 
+            // weather_txt
+            // 
+            this.weather_txt.Location = new System.Drawing.Point(28, 272);
+            this.weather_txt.Name = "weather_txt";
+            this.weather_txt.Size = new System.Drawing.Size(222, 23);
+            this.weather_txt.TabIndex = 6;
             // 
             // TrainingConsole
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1320, 498);
-            this.Controls.Add(this.formsPlot1);
+            this.Controls.Add(this.plot);
             this.Controls.Add(this.panel1);
             this.Name = "TrainingConsole";
             this.Text = "Training";
@@ -217,7 +218,7 @@
         }
 
         #endregion
-        private ScottPlot.FormsPlot formsPlot1;
+        private ScottPlot.FormsPlot plot;
         private TextBox distance_txt;
         private Label exercise_lbl;
         private Label duration_lbl;

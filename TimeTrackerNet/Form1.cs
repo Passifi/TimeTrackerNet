@@ -13,21 +13,20 @@ namespace TimeTrackerNet
         TimeSpan passedTime;
         List<string> skillNames;
         ProgressTrackerContext progressTrackerContext;
-        TrainingContext trainingContext;
+        TrainingConsole tr;
         DateTime currentTime;
         DateTime startTime;
         public MainWindow()
         {
             skillNames = new List<string> {"Coding","Chess","Photoshop", "Animation", "Drawing", "Illustrator", "Japanese", "Chinese", "Electronics", "Soccer", "ZoneTwoCardio", "ResistanceTraining", "Spanish", "Philosophy", "Go", "GameDev", "Composing", "Singing", "Guitar", "Piano", "YouTubeChannel", "Blender", "Berufsschule", "AI", "AudioProgramming" };
 
-            trainingContext = new TrainingContext();
             progressTrackerContext = new ProgressTrackerContext();
 
             passedTime = DateTime.Now - DateTime.Now;
             InitializeComponent();
             dateSelection.Value = DateTime.Now;
             skillSelection_dropdown.Items.AddRange(skillNames.ToArray());
-
+            tr = new TrainingConsole();
             timer1.Interval = 100;
             plot.Refresh();
 
@@ -160,6 +159,12 @@ namespace TimeTrackerNet
             passedTime = DateTime.Now - DateTime.Now;
             timeDisplay_txt.Text = neutralTime;
 
+
+        }
+
+        private void train_btn_Click(object sender, EventArgs e)
+        {
+            tr.Show();
 
         }
     }

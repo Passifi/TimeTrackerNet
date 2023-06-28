@@ -48,6 +48,7 @@
             this.timeDisplay_txt = new System.Windows.Forms.TextBox();
             this.stop_btn = new System.Windows.Forms.Button();
             this.play_btn = new System.Windows.Forms.Button();
+            this.train_btn = new System.Windows.Forms.Button();
             this.dataEntry_pnl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.timeTrackingBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressTrackerContextBindingSource)).BeginInit();
@@ -211,11 +212,22 @@
             this.play_btn.UseVisualStyleBackColor = true;
             this.play_btn.Click += new System.EventHandler(this.play_btn_Click);
             // 
+            // train_btn
+            // 
+            this.train_btn.Location = new System.Drawing.Point(12, 378);
+            this.train_btn.Name = "train_btn";
+            this.train_btn.Size = new System.Drawing.Size(268, 23);
+            this.train_btn.TabIndex = 9;
+            this.train_btn.Text = "Show Training";
+            this.train_btn.UseVisualStyleBackColor = true;
+            this.train_btn.Click += new System.EventHandler(this.train_btn_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.train_btn);
             this.Controls.Add(this.timerPanel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.plot);
@@ -255,5 +267,6 @@
         private TextBox timeDisplay_txt;
         private Button stop_btn;
         private Button play_btn;
+        private Button train_btn;
     }
 }
